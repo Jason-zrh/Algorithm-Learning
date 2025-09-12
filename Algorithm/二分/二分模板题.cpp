@@ -1,7 +1,6 @@
-// ¶ş·Ö²éÕÒ£ºÊı¾İÓĞĞòÇÒÓĞÃ÷ÏÔ·Ö²ãĞèÇóµÄÊ±ºò¿ÉÒÔ¿¼ÂÇ¶ş·ÖËã·¨
-// ¶ş·ÖËã·¨Ä£°å
+// äºŒåˆ†æ¨¡ç‰ˆ
 
-// ÕÒ×ó¶Ëµã
+// å·¦ä¾§ç«¯ç‚¹
 /*
 	int left = 1, right = n;
 	while (left < right)
@@ -16,12 +15,10 @@
 			left = mid + 1;
 		}
 	}
-	// ÅĞ¶ÏleftËùÖ¸Î»ÖÃÓëtarget¹ØÏµ
 */
 
 
-// ÕÒÓÒ¶Ëµã
-
+// å³ä¾§ç«¯ç‚¹
 /*
 	int left = 1, right = n;
 	while(left < right)
@@ -36,74 +33,68 @@
 			right = mid - 1;
 		}
 	}
-	// ÅĞ¶ÏleftËùÖ¸Î»ÖÃÓëtarget¹ØÏµ
 */
 
-//https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/description/
-// ÔÚÅÅĞòÊı×éÖĞ²éÕÒµÚÒ»¸öºÍ×îºóÒ»¸öÎ»ÖÃ
+// https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/description/
+// äºŒåˆ†æ¨¡ç‰ˆé¢˜
 #include<iostream>
 #include<vector>
 using namespace std;
 
-//class Solution
-//{
-//public:
-//    vector<int> searchRange(vector<int>& nums, int target)
-//    {
-//        if (nums.size() == 0)
-//        {
-//            return { -1, -1 };
-//        }
-//        vector<int> ret;
-//        // ÏÈÕÒµ½µÚÒ»¸ö³öÏÖµÄÎ»ÖÃ
-//        int left, right;
-//        left = 0, right = nums.size() - 1;
-//        int mid = 0;
-//        while (left < right)
-//        {
-//            mid = (left + right) / 2;
-//            // mid´óÓÚÄ¿±êÖµ
-//            if (nums[mid] >= target)
-//            {
-//                right = mid;
-//            }
-//            // midĞ¡ÓÚÄ¿±êÖµ
-//            else
-//            {
-//                left = mid + 1;
-//            }
-//        }
-//
-//        // ×ßµ½ÕâÀïleftºÍrightÒÑ¾­ÖØµşÁË£¬ÅĞ¶ÏÊÇ·ñÃüÖĞÄ¿±êÖµ
-//        if (nums[left] != target)
-//        {
-//            return { -1, -1 };
-//        }
-//        else
-//        {
-//            ret.push_back(left);
-//        }
-//
-//
-//        // ÔÙÕÒ×îºóÒ»¸öÎ»ÖÃ
-//        left = 0, right = nums.size() - 1;
-//
-//        while (left < right)
-//        {
-//            mid = (left + right + 1) / 2;
-//            if (nums[mid] > target)
-//            {
-//                right = mid - 1;
-//            }
-//            else
-//            {
-//                left = mid;
-//            }
-//        }
-//
-//        ret.push_back(left);
-//        return ret;
-//    }
-//};
+class Solution
+{
+public:
+   vector<int> searchRange(vector<int>& nums, int target)
+   {
+       if (nums.size() == 0)
+       {
+           return { -1, -1 };
+       }
+       vector<int> ret;
+       int left, right;
+       left = 0, right = nums.size() - 1;
+       int mid = 0;
+       while (left < right)
+       {
+           mid = (left + right) / 2;
+           if (nums[mid] >= target)
+           {
+               right = mid;
+           }
+           else
+           {
+               left = mid + 1;
+           }
+       }
+
+       if (nums[left] != target)
+       {
+           return { -1, -1 };
+       }
+       else
+       {
+           ret.push_back(left);
+       }
+
+
+       left = 0, right = nums.size() - 1;
+
+       while (left < right)
+       {
+           mid = (left + right + 1) / 2;
+           if (nums[mid] > target)
+           {
+               right = mid - 1;
+           }
+           else
+           {
+               left = mid;
+           }
+       }
+
+       ret.push_back(left);
+       return ret;
+   }
+};
 
 

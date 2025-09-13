@@ -11,6 +11,7 @@
 // 可以枚举所有的A - C，看看有多少个B，这时就存在二段性
 using namespace std;
 
+// 数据超范围了bro， 用longlong
 int main()
 {
 	int n, c;
@@ -20,7 +21,7 @@ int main()
 	{
 		cin >> nums[i];
 	}
-
+	sort(nums.begin(), nums.end());
 
 	int ret = 0;
 	for(int i = 1; i <= n; i++)

@@ -54,6 +54,5 @@ int main()
 
     int ret = left;
     cout << ret << endl;
-
     return 0;
 }
